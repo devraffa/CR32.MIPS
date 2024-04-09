@@ -21,6 +21,7 @@ Este projeto consiste em dois circuitos de 32 bits cada, baseados na arquitetura
 
 ### Moto (Modelo Pipeline):
     [Inserir explicação do funcionamento do modelo pipeline]
+        
 
 ## Configuração e Uso:
 
@@ -46,3 +47,8 @@ As instruções devem ser configuradas em hexadecimal de acordo com o seguinte f
 - $A$: $\color{SkyBlue}{Endereço\ da\ instrução}$
 
 Certifique-se de seguir corretamente as configurações para garantir o funcionamento adequado do processador.
+
+## Erro no Pipeline
+Todas as funções e instruções foram testadas e estão funcionando corretamente e as informações estão chegando corretamente no tempo de clock previsto, mas foi detectado um erro quando aplicado para realizar o cálculo de duas matrizes 2x2 em que existem 3 loops e o somatório (addi) para o correto funcionamento de um deles não estava acontecendo. Era realizado o cálculo correto daquela posição na matriz resultante da mas devido a este erro no somatório não era possível calcular as outras posições da matriz. 
+
+Dentro do circuito acompanhamos como essa instrução estava se comportando dentro do processador e no momento em que os dados estão entrando no banco de registradores o bit relativo ao salvamento de dados no registrador estão em 0, chegando atrasado em relação à esses dados, possivelmente afetado pelas instruções anteriores que não há salvamento de dados no banco de registradores.  
