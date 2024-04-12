@@ -17,7 +17,40 @@ Este projeto consiste em dois circuitos de 32 bits cada, baseados na arquitetura
 ## Funcionamento dos Circuitos:
 
 ### Bicicleta (Modelo Monociclo):
-    [Inserir explicação do funcionamento do modelo monociclo]
+ - Unidade de controle:
+ 
+    ![Unidade de Controle](./Prints/UC.png)
+
+    A unidade de controle recebe 4 bits referente ao código da operação que será executada. Feita a análise combinacional pelo próprio Logisim referente aos bits de saída desejados em cada operação.
+
+     * write_reg: Bit que vai permitir, ou não, que seja salvo um valor no registrador
+
+     * branch: Bit que sinaliza que uma comparação será feito na ula e será usado para saber se "pula" ou não.
+
+     * read_mem: Bit que permite que irá carregar algum valor da memória de dados.
+
+     * write_mem: Bit que permite que irá salvar algum valor da memória de dados.
+
+     * jump: Bit que faz com que ocorra um jump "imediatamente" 
+
+     * imediato: Bit que sinaliza que será usado um imediato na ula
+
+    * E os 4 bits no final, os mesmos 4 de entrada, passando novamente a informação de qual operação foi especificada na instrução, será usada na ULA.
+
+ - Banco de registradores:
+    ![Banco_Registradores](./Prints/banco_registradores.png)
+
+    O Banco de registradores com 16 registradores, com seus "códigos" de 0 a F, em hexadecimal. É possível especificar em qual registrador será salvo (RW) o valor que está chegando (DATA_WRITE), e/ou qual registrador eu quero saber o valor que estava guardado nele, podendo especificar pelo R0 ou R1 e suas saídas sendo respectivamente R0_D e R1_D.
+
+    Na construção da instrução o RW seria o X (bits 24-27), R1 seria o Y (bits 20-23), R0 seria o Z (bits 16-19). Especificados suas posições nas instruções mais futuramente em "Configuração e Uso"
+
+    Utilizando o bit (write_reg) que sai da unidade de controle para permitir, ou não, a sobrescrita de valores dentro de algum registrador especificado.
+
+ - ULA:
+    ![ULA](./Prints/ula.png)
+
+    A ULA é onde são feitas todas as operações mas a saída depende de qual operação foi especificada usando o ULA_OP como entrada no multiplexador para determinar essa saída. A ordem de disposição no multiplexador é a mesma ordem que pode ser vista na sessão "Configuração e Uso". 
+
 
 ### Moto (Modelo Pipeline):
     [Inserir explicação do funcionamento do modelo pipeline]
@@ -30,7 +63,7 @@ As instruções devem ser configuradas em hexadecimal de acordo com o seguinte f
 - $\color{blue}{0XYZ0000}$: **ADD** (Soma os valores dos registradores Y e Z e grava no registrador X)
 - $\color{green}{1XYZ0000}$: **SUB** (Subtrai os valores dos registradores Y e Z e grava no registrador X)
 - $\color{orange}{2XYZ0000}$: **MULL** (Multiplica os valores dos registradores Y e Z e grava no registrador X)
-- $\color{purple}{3X0Y00SS}$: **ADDI** (Soma o valor do registrador Y com um imediato S (0 a 31) e grava no registrador X)
+- $\color{purple}{3X0Z00SS}$: **ADDI** (Soma o valor do registrador Y com um imediato S (0 a 31) e grava no registrador X)
 - $\color{teal}{5000AAAA}$: **JUMP** (Salta para a instrução especificada no endereço A)
 - $\color{magenta}{60YZ00AA}$: **BGE** (Compara se o valor de Y é maior ou igual a Z e, se sim, salta para o endereço A)
 - $\color{red}{7X0000SS}$: **LI** (Carrega o valor do imediato S no registrador X)
