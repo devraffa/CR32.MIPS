@@ -63,16 +63,29 @@ Este projeto consiste em dois circuitos de 32 bits cada, baseados na arquitetura
     [Inserir explicação do funcionamento do modelo pipeline]
 
 ### Moto (Modelo Pipeline):
--Começo
-     ![primeiroRegistrador](./Prints/primeiroRegistrador.png)
-    Logo no começo do circuito Pipeline podemos notar as difereças entre o monociclo e ele, começamos com um registrador que guarda as informações, ou seja guarda as as operções que está sendo pedida para ser realizada.
-     ![segundoRegistradores](./Prints/segundoRegistradores.png)
-     Após guardar a operação e depois do pulso de clock é passado para o registrador que vai dizer qual vai ser o registrador que vai ser colocado o resultado ou o que a operação necessita no banco de registradores, mas antes passa por um distribuidor que vai pegar quatro bits para para ir para mais dois registradores para poder no tempo igual de clock das outras instruções.
+-Primeiro Registrador:
+
+![primeiroRegistrador](./Prints/primeiroRegistrador.png)
+     
+Logo no começo do circuito Pipeline podemos notar as difereças entre o monociclo e ele, começamos com um registrador que guarda as 
+informações, ou seja guarda as as operções que está sendo pedida para ser realizada.
+
+![segundoRegistradores](./Prints/segundoRegistradores.png)
+     
+Após guardar a operação e depois do pulso de clock é passado para o registrador que vai dizer qual vai ser o registrador que vai ser colocado o resultado ou o que a operação necessita no banco de registradores, mas antes passa por um distribuidor que vai pegar quatro bits para para ir para mais dois registradores para poder no tempo igual de clock das outras instruções
+
 -Primeiro Pipeline
     Saindo do banco de registradores temos os registradores 1 e O e os bits que saem da unidade de controle também, todos eles também entram em registradores, dentro do primeiro pipeline, ode ele vai guardar dentro do registradores essas informações.
      ![primeiroPipeline](./Prints/primeiroPipeline.png)
      ![dentrodopipilene](./Prints/dentro do pipeline.png)
+     
 -Segundo Pipeline
+ ![segundoPipeline](./Prints/segundoPipeline.png)
+    No segundo pipeline temos agora os bits que saem da ula e mais alguns que saem do primeiro pipeline para que assim eles possam ficar o mesmmo tempo com as outras instruções, ouseja todas pasando pelo mesmo tempo de clock, e assim passando para a memória de dados.
+
+-Terceiro Pipeline
+ ![terceiroPipeline](./Prints/terceiroPipeline.png)
+     Já no terceiro conjunto de registradores, primeiro guarda o resultado da memória de dados, o resultado da mais uma vez, os sinais tanto dos bges quanto dos jumps,e também o sinal da unidade de controle de escrever e ler a memória. E assim esses registradores que saem do terceiro pipeline são os que são usados logo no começo do circuito.
     
 ## Configuração e Uso:
 
