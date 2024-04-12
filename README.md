@@ -77,7 +77,7 @@ Após guardar a operação e depois do pulso de clock é passado para o registra
 -Primeiro Pipeline
     Saindo do banco de registradores temos os registradores 1 e O e os bits que saem da unidade de controle também, todos eles também entram em registradores, dentro do primeiro pipeline, ode ele vai guardar dentro do registradores essas informações.
      ![primeiroPipeline](./Prints/primeiroPipeline.png)
-     ![dentrodopipilene](./Prints/dentro do pipeline.png)
+     ![dentrodopipilene](./Prints/dentrodopipeline.png)
      
 -Segundo Pipeline
  ![segundoPipeline](./Prints/segundoPipeline.png)
