@@ -17,6 +17,8 @@ Este projeto consiste em dois circuitos de 32 bits cada, baseados na arquitetura
 ## Funcionamento dos Circuitos:
 
 ### Circuitos internos:
+Os seguintes circuitos são usados na versão Monociclo e Pipeline
+
  - Unidade de controle:
  
     ![Unidade de Controle](./Prints/UC.png)
@@ -60,15 +62,28 @@ Este projeto consiste em dois circuitos de 32 bits cada, baseados na arquitetura
     Os bits de entrada que são usados para permitir que possa salvar ou carregar da memória são respectivamente o SW e o LW, que saem da unidade de controle com os nomes: write_mem e read_mem, ambos se utilizam da entrada Adress que especifica a posição da memória mas somente para salvar na memória usa a entrada DATA que seria o valor que será salvo.
 
 ### Bicicleta (Modelo Moniciclo):
-    [Inserir explicação do funcionamento do modelo pipeline]
+Para a versão do monociclo é basicamente a junção de todas os circuitos mostrados anteriormente adicionando um trecho antes do "PC" para dizer qual instrução vai entrar, se é a seguinte na contagem ou alguma especificada pelo jump ou bge.
+
+![PC](./Prints/pc.JPG)
+
+A visão geral do processador monociclo ficou da seguinte forma: 
+
+![Monociclo](./Prints/processador_mono.png)
+
 
 ### Moto (Modelo Pipeline):
+Para a versão Pipeline existem diversos registradores, ou a junção deles em um "pipeline", em que mais de uma instrução ocorre ao mesmo tempo, para garantir que as informações sejam salvas de cada etapa e "cheguem" nos tempos corretos em relação aos outros dados, mais a frente explicaremos as principais diferenças/adições em relação ao Monociclo.
+
+Uma visão geral do processador Pipeline: 
+
+![Pipeline](./Prints/pipelineCompleto.png)
+
 - Primeiro Registrador:
 
     ![primeiroRegistrador](./Prints/primeiroRegistrador.png)
      
     Logo no começo do circuito Pipeline podemos notar as difereças entre o monociclo e ele, começamos com um registrador que guarda as 
-    informações, ou seja guarda as as operções que está sendo pedida para ser realizada.
+    informações, ou seja guarda as as operações que está sendo pedida para ser realizada.
 
     ![segundoRegistradores](./Prints/segundoRegistradores.png)
      
