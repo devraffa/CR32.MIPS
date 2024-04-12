@@ -16,7 +16,7 @@ Este projeto consiste em dois circuitos de 32 bits cada, baseados na arquitetura
 
 ## Funcionamento dos Circuitos:
 
-### Bicicleta (Modelo Monociclo):
+### Circuitos internos:
  - Unidade de controle:
  
     ![Unidade de Controle](./Prints/UC.png)
@@ -51,6 +51,16 @@ Este projeto consiste em dois circuitos de 32 bits cada, baseados na arquitetura
 
     A ULA é onde são feitas todas as operações mas a saída depende de qual operação foi especificada usando o ULA_OP como entrada no multiplexador para determinar essa saída. A ordem de disposição no multiplexador é a mesma ordem que pode ser vista na sessão "Configuração e Uso". 
 
+- Memória de dados:
+  
+    ![Memória de Dados](./Prints/memoria_dados.png)
+
+    A memória de dados irá salvar valores/dados em determinados endereços, da mesma forma irá carregar e por na saída um valor que estaria salvo em determinado endereço da memória.
+
+    Os bits de entrada que são usados para permitir que possa salvar ou carregar da memória são respectivamente o SW e o LW, que saem da unidade de controle com os nomes: write_mem e read_mem, ambos se utilizam da entrada Adress que especifica a posição da memória mas somente para salvar na memória usa a entrada DATA que seria o valor que será salvo.
+
+### Bicicleta (Modelo Moniciclo):
+    [Inserir explicação do funcionamento do modelo pipeline]
 
 ### Moto (Modelo Pipeline):
     [Inserir explicação do funcionamento do modelo pipeline]
